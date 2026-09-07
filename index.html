@@ -1,7 +1,132 @@
-<!doctype html><html lang="el"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Le Jardin Extraordinaire</title><style>body{margin:0;font-family:Georgia,serif;background:#eef0e8;color:#243026}header{padding:28px 7%;display:flex;justify-content:space-between;font-family:system-ui}.hero{padding:100px 7%;background:#304a39;color:#f6f3e8}.hero h1{font-size:clamp(46px,8vw,86px);max-width:850px;margin:15px 0}.hero p{max-width:650px;font:20px/1.6 system-ui}.cta{display:inline-block;padding:14px 22px;background:#e7c778;color:#233022;text-decoration:none;border-radius:999px;font-family:system-ui;font-weight:700}.grid{padding:60px 7%;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}.card{padding:30px;background:white;border-radius:18px}.demo{font:12px system-ui;opacity:.65}footer{padding:40px 7%;background:#203126;color:white;font-family:system-ui}</style><style>.visit-cta{padding:56px 24px;max-width:900px;margin:auto}.visit-cta div{display:flex;gap:12px;flex-wrap:wrap}.visit-cta a{margin-top:8px}.visit-cta h2{margin-bottom:12px}</style></head><body><header><strong>LE JARDIN</strong><span>CAFÉ · COCKTAILS</span></header><section class="hero"><div class="demo"></div><h1>A little garden in the city.</h1><p>A calmer, more premium web presence for coffee, cocktails and long evenings in Thessaloniki.</p><a class="cta" href="tel:+302310264180">Call 2310 264180</a></section><section class="grid"><div class="card"><h2>Coffee & more</h2><p>Present the menu and daily rhythm with clarity and atmosphere.</p></div><div class="card"><h2>Location</h2><p>Paleon Patron Germanou 8, Thessaloniki 546 22</p></div><div class="card"><h2>Every day</h2><p>9:00–02:00 · verify current hours before publishing.</p></div></section><footer><strong>LE JARDIN EXTRAORDINAIRE</strong><p>2310 264180</p><div class="demo"></div></footer>
-<section id="contact" style="padding:2rem 1.25rem;max-width:900px;margin:0 auto">
-  <h2>Επικοινωνία</h2>
-  <p><strong>Τηλέφωνο:</strong> <a href="tel:+302310264180">+30 231 026 4180</a></p>
-  <p><strong>Email:</strong> <a href="mailto:lejardin.excafe@gmail.com">lejardin.excafe@gmail.com</a></p>
-</section>
-<section id="visit" class="visit-cta"><h2>Μια στάση που αξίζει.</h2><p>Όταν ψάχνεις πού να πας, οι σωστές πληροφορίες κάνουν την απόφαση πιο εύκολη. Δες το σημείο και έλα να το γνωρίσεις.</p><div><a href="https://maps.google.com/?cid=5603301104900388748" target="_blank" rel="noopener">Δες τη διαδρομή στο Google Maps</a><a href="tel:2310264180">Κάλεσε · 231 026 4180</a></div></section></body></html>
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Le Jardin Extraordinaire</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#2e5d4f;
+  --secondary:#c9b58c;
+  --bg:#f5f9f6;
+  --text:#2b3a2a;
+  --accent:#a67c52;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+header{
+  background:var(--primary);
+  color:#fff;
+  padding:1rem 2rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+header h1{
+  font-family:'Playfair Display',serif;
+  font-size:1.8rem;
+  margin:0;
+}
+header nav a{
+  color:#fff;
+  text-decoration:none;
+  margin-left:1.5rem;
+  font-weight:600;
+}
+.hero{
+  background:linear-gradient(rgba(46,93,79,0.6),rgba(46,93,79,0.6)),url('data:image/svg+xml,%3Csvg width%3D"800" height%3D"600" xmlns%3D"http://www.w3.org/2000/svg"%3E%3Crect width%3D"800" height%3D"600" fill%3D"%23c9b58c"%2F%3E%3Ccircle cx%3D"400" cy%3D"300" r%3D"200" fill%3D"%236e8c78"%2F%3E%3C%2Fsvg%3E');
+  background-size:cover;
+  background-position:center;
+  color:#fff;
+  text-align:center;
+  padding:6rem 2rem;
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.5rem,8vw,5rem);
+  margin-bottom:.5rem;
+}
+.hero p{
+  font-size:1.125rem;
+  max-width:45ch;
+  margin:auto;
+}
+.cta{
+  display:inline-block;
+  margin-top:1.5rem;
+  padding:.75rem 1.5rem;
+  background:var(--secondary);
+  color:var(--primary);
+  text-decoration:none;
+  border-radius:999px;
+  font-weight:600;
+}
+.main{
+  padding:2rem;
+}
+.grid{
+  display:grid;
+  gap:1.5rem;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+}
+.card{
+  background:#fff;
+  border-radius:12px;
+  padding:1.5rem;
+  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+.card h2{
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem;
+  margin-bottom:.5rem;
+  color:var(--primary);
+}
+footer{
+  background:var(--primary);
+  color:#fff;
+  text-align:center;
+  padding:2rem 1rem;
+  font-size:.9rem;
+}
+footer a{
+  color:#fff;
+  text-decoration:underline;
+}
+section{
+  margin-bottom:3rem;
+}
+.visually-hidden{
+  position:absolute;
+  clip:rect(0 0 0 0);
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important;}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>LE JARDIN</h1>
+  <nav aria-label="Κύρια πλοήγηση">
+    <a href="#menu">Μενού</a>
+    <a href="#location">Τοποθεσία</a>
+    <a href="#hours">Ωράριο</a>
+    <a href="#contact">Επικοινωνία</a>
+  </nav>
+</header>
+
+<main class="main">
+  <section class="hero" aria-label="Καλωσόρισμα">
+    <h1>A little garden in the city.</h1>
+    <p>A calmer, more premium web presence for coffee, cocktails and long evenings in Thessaloniki.</p>
+    <a class="cta" href="tel:+302310264180">Call 2310 264 180</a>
+  </section
