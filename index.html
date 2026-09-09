@@ -9,53 +9,89 @@
 :root{
   --primary:#2e5d4f;
   --secondary:#c9b58c;
+  --accent:#a67c52;
   --bg:#f5f9f6;
   --text:#2b3a2a;
-  --accent:#a67c52;
+  --radius:8px;
+  --transition:0.3s ease;
 }
-*{box-sizing:border-box;margin:0;padding:0;}
+*,
+*::before,
+*::after{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+html{
+  scroll-behavior:smooth;
+}
 body{
   font-family:'Inter',system-ui,sans-serif;
   background:var(--bg);
   color:var(--text);
   line-height:1.6;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+a{
+  color:inherit;
+  text-decoration:none;
+}
+a:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:2px;
 }
 header{
   background:var(--primary);
   color:#fff;
-  padding:1rem 2rem;
+  padding:1rem 1.5rem;
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
 header h1{
   font-family:'Playfair Display',serif;
-  font-size:1.8rem;
-  margin:0;
+  font-size:1.5rem;
 }
-header nav a{
-  color:#fff;
-  text-decoration:none;
-  margin-left:1.5rem;
+nav{
+  display:flex;
+  gap:1rem;
+}
+nav a{
   font-weight:600;
+  font-size:.95rem;
 }
 .hero{
-  background:linear-gradient(rgba(46,93,79,0.6),rgba(46,93,79,0.6)),url('data:image/svg+xml,%3Csvg width%3D"800" height%3D"600" xmlns%3D"http://www.w3.org/2000/svg"%3E%3Crect width%3D"800" height%3D"600" fill%3D"%23c9b58c"%2F%3E%3Ccircle cx%3D"400" cy%3D"300" r%3D"200" fill%3D"%236e8c78"%2F%3E%3C%2Fsvg%3E');
-  background-size:cover;
-  background-position:center;
+  position:relative;
+  background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);
   color:#fff;
   text-align:center;
-  padding:6rem 2rem;
+  padding:4rem 1.5rem;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:url('data:image/svg+xml,%3Csvg width%3D"200" height%3D"200" viewBox%3D"0 0 200 200" xmlns%3D"http://www.w3.org/2000/svg"%3E%3Cpath d%3D"M100 0 C123 0 146 23 146 46 C146 69 123 92 100 92 C77 92 54 69 54 46 C54 23 77 0 100 0 Z" fill%3D"%23c9b58c"%2F%3E%3Cpath d%3D"M150 110 C165 110 180 125 180 140 C180 155 165 170 150 170 C135 170 120 155 120 140 C120 125 135 110 150 110 Z" fill%3D"%236e8c78"%2F%3E%3C/svg%3E');
+  opacity:0.15;
+  background-size:200px 200px;
+  animation:float 30s linear infinite;
+}
+@keyframes float{
+  from{transform:translateY(0);}
+  to{transform:translateY(-200px);}
 }
 .hero h1{
   font-family:'Playfair Display',serif;
-  font-size:clamp(2.5rem,8vw,5rem);
+  font-size:clamp(2.5rem,10vw,5rem);
   margin-bottom:.5rem;
 }
 .hero p{
-  font-size:1.125rem;
   max-width:45ch;
   margin:auto;
+  font-size:1.125rem;
 }
 .cta{
   display:inline-block;
@@ -63,59 +99,70 @@ header nav a{
   padding:.75rem 1.5rem;
   background:var(--secondary);
   color:var(--primary);
-  text-decoration:none;
   border-radius:999px;
   font-weight:600;
+  transition:background var(--transition);
 }
-.main{
-  padding:2rem;
+.cta:hover,
+.cta:focus-visible{
+  background:#b8a27a;
 }
-.grid{
-  display:grid;
-  gap:1.5rem;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+section{
+  padding:2rem 1.5rem;
 }
-.card{
-  background:#fff;
-  border-radius:12px;
-  padding:1.5rem;
-  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+section:not(:last-child){
+  border-bottom:1px solid rgba(0,0,0,.1);
 }
-.card h2{
+h2{
   font-family:'Playfair Display',serif;
-  font-size:1.4rem;
-  margin-bottom:.5rem;
+  font-size:1.8rem;
+  margin-bottom:.75rem;
   color:var(--primary);
+}
+ul{
+  list-style:none;
+  display:grid;
+  gap:1rem;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+}
+li{
+  background:#fff;
+  padding:1rem;
+  border-radius:var(--radius);
+  box-shadow:0 2px 6px rgba(0,0,0,.08);
 }
 footer{
   background:var(--primary);
   color:#fff;
   text-align:center;
-  padding:2rem 1rem;
+  padding:1.5rem;
+  margin-top:auto;
   font-size:.9rem;
 }
 footer a{
-  color:#fff;
   text-decoration:underline;
-}
-section{
-  margin-bottom:3rem;
 }
 .visually-hidden{
   position:absolute;
-  clip:rect(0 0 0 0);
   width:1px;
   height:1px;
+  padding:0;
   overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
 }
 @media (prefers-reduced-motion:reduce){
-  *{animation:none !important;transition:none !important;}
+  *{
+    animation:none !important;
+    transition:none !important;
+  }
 }
 </style>
 </head>
 <body>
 <header>
-  <h1>LE JARDIN</h1>
+  <h1>Le Jardin</h1>
   <nav aria-label="Κύρια πλοήγηση">
     <a href="#menu">Μενού</a>
     <a href="#location">Τοποθεσία</a>
@@ -124,9 +171,54 @@ section{
   </nav>
 </header>
 
-<main class="main">
+<main>
   <section class="hero" aria-label="Καλωσόρισμα">
-    <h1>A little garden in the city.</h1>
-    <p>A calmer, more premium web presence for coffee, cocktails and long evenings in Thessaloniki.</p>
-    <a class="cta" href="tel:+302310264180">Call 2310 264 180</a>
-  </section
+    <h1>Μια μικρή κήπος στην πόλη.</h1>
+    <p>Καφές, κοκτέιλ και ατέλειωτες βραδιές στο κέντρο της Θεσσαλονίκης.</p>
+    <a class="cta" href="tel:+302310264180">Κλήση 2310 264 180</a>
+  </section>
+
+  <section id="menu" aria-labelledby="menu-heading">
+    <h2 id="menu-heading">Μενού</h2>
+    <p>Ανακαλύψτε τις προτάσεις μας. (Λεπτομέρειες στο χώρο)</p>
+    <ul>
+      <li>Καφές &amp; Τσάι</li>
+      <li>Κοκτέιλ</li>
+      <li>Γλυκά</li>
+      <li>Σνακ</li>
+    </ul>
+  </section>
+
+  <section id="location" aria-labelledby="location-heading">
+    <h2 id="location-heading">Τοποθεσία</h2>
+    <p>Στο κέντρο της Θεσσαλονίκης, κοντά στο κέντρο της πόλης.</p>
+    <svg width="100%" height="200" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+      <defs>
+        <marker id="pin" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="10" markerHeight="10">
+          <circle cx="5" cy="5" r="5" fill="var(--accent)"/>
+        </marker>
+      </defs>
+      <rect width="100" height="100" fill="none"/>
+      <path d="M50 10 C70 10 90 30 90 50 C90 70 70 90 50 90 C30 90 10 70 10 50 C10 30 30 10 50 10 Z" fill="var(--secondary)" stroke="var(--primary)" stroke-width="2"/>
+      <line x1="50" y1="30" x2="50" y2="70" stroke="var(--primary)" stroke-width="2" marker-end="url(#pin)"/>
+    </svg>
+  </section>
+
+  <section id="hours" aria-labelledby="hours-heading">
+    <h2 id="hours-heading">Ωράριο</h2>
+    <p>Παρακαλούμε επικοινωνήστε για τις ώρες λειτουργίας.</p>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-heading">
+    <h2 id="contact-heading">Επικοινωνία</h2>
+    <p>Τηλέφωνο: <a href="tel:+302310264180">2310 264 180</a></p>
+    <p>Ακολουθήστε μας στα κοινωνικά δίκτυα για ενημερώσεις.</p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2024 Le Jardin. All rights reserved.</p>
+  <p><a href="#top">Επιστροφή στην αρχή</a></p>
+</footer>
+</body>
+</html>
